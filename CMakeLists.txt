@@ -3,9 +3,6 @@ cmake_minimum_required(VERSION 3.0)
 include(cmake/modules/mgis.cmake)
 project("mfront-generic-interface")
 
-set(CMAKE_CXX_STANDARD 17)
-set(CXX_STANDARD_REQUIRED ON)
-
 # portable-build
 option(enable-portable-build "produce binary that can be shared between various machine (same architecture, same gcc version, different processors" OFF)
 
@@ -143,6 +140,9 @@ if(enable-julia-bindings)
   find_package(JlCxx REQUIRED)
 endif(enable-julia-bindings)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 # summary
 
